@@ -1,0 +1,28 @@
+---
+title: "Theme Toggle and FOUC Prevention"
+date: "2026-06-08"
+learned: "Flash of unstyled content (FOUC) happens when the browser renders HTML before JavaScript hydrates. For theme toggles, this means the page flashes to the wrong theme for a split second."
+problem: "On page load, the site would briefly show light mode before switching to dark mode if the user had previously selected dark. The React state wasn't available during SSR, so the HTML rendered without theme classes."
+solution: "Added an inline `<script>` in the `<head>` that reads localStorage and applies theme classes synchronously before paint. This runs before any CSS renders, so the user never sees the wrong theme."
+resources:
+  - "https://github.com/pacocoursey/next-themes"
+reflection: "The inline script approach feels hacky, but it's the only reliable way to prevent FOUC without server-side session state. The trade-off: the script blocks rendering for ~1ms, but that's imperceptible compared to a visible theme flash. Would use this pattern again."
+---
+
+The inline script pattern:
+
+```html
+<script>
+  (function() {
+    try {
+      var theme = localStorage.getItem('theme');
+      var isDark = theme !== 'light'; // default to dark
+      document.documentElement.classList.toggle('dark', isDark);
+      document.documentElement.classList.toggle('light', !isDark);
+      document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+    } catch(e) {}
+  })();
+</script>
+```
+
+Key detail: this must go in `<head>`, before any CSS links. If it runs after stylesheets load, you'll still see a flash.

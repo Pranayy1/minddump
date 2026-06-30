@@ -1,0 +1,20 @@
+---
+title: "How DNS Resolution Works"
+date: "2026-06-05"
+summary: "The journey from typing a URL to getting an IP address: browser cache, OS cache, recursive resolver, root server, TLD server, authoritative server."
+category: "Networking"
+tags: ["dns", "networking", "internet"]
+---
+
+When you type `minddump.dev` into your browser, here's what happens:
+
+1. **Browser cache** — check if we already know the IP
+2. **OS cache** — check the operating system's DNS cache
+3. **Recursive resolver** — your ISP's DNS server (or 1.1.1.1 / 8.8.8.8)
+4. **Root name server** — "I don't know, but ask the .com server"
+5. **TLD server** — "I don't know, but ask the authoritative server for minddump.dev"
+6. **Authoritative server** — "The IP is 76.76.21.21"
+
+Each step has a TTL (time-to-live) that controls how long the result is cached. That's why DNS changes can take up to 48 hours to propagate — you're waiting for cached entries to expire.
+
+The whole process typically takes 20-120ms on a cold lookup, and 0ms once cached.

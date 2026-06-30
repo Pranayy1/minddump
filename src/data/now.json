@@ -1,0 +1,78 @@
+{
+  "lastUpdated": "2026-06-19",
+  "learning": [
+    {
+      "title": "Rust fundamentals",
+      "detail": "Working through Rustlings and building small CLI tools"
+    },
+    {
+      "title": "System design",
+      "detail": "Distributed systems, consensus algorithms, and database internals"
+    },
+    {
+      "title": "TypeScript deep dive",
+      "detail": "Advanced types, conditional types, and type-level programming"
+    }
+  ],
+  "building": [
+    {
+      "title": "Minddump",
+      "detail": "This website — a personal learning journal and digital garden",
+      "status": "active"
+    },
+    {
+      "title": "CLI toolkit",
+      "detail": "A set of small Rust utilities for daily workflows",
+      "status": "early"
+    }
+  ],
+  "reading": [
+    {
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann",
+      "progress": "in-progress"
+    },
+    {
+      "title": "The Pragmatic Programmer",
+      "author": "David Thomas & Andrew Hunt",
+      "progress": "completed"
+    },
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "progress": "completed"
+    }
+  ],
+  "exploring": [
+    {
+      "title": "Game development",
+      "detail": "Experimenting with Bevy engine and procedural generation"
+    },
+    {
+      "title": "Cybersecurity",
+      "detail": "CTF challenges and network security fundamentals"
+    },
+    {
+      "title": "AI/ML pipelines",
+      "detail": "How LLMs work under the hood — attention, embeddings, fine-tuning"
+    }
+  ],
+  "goals": [
+    {
+      "title": "Ship 3 side projects this year",
+      "done": false
+    },
+    {
+      "title": "Write consistently — 2 posts per month",
+      "done": false
+    },
+    {
+      "title": "Contribute to an open-source project",
+      "done": false
+    },
+    {
+      "title": "Build a game from scratch",
+      "done": false
+    }
+  ]
+}

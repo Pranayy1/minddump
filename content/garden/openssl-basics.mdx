@@ -1,0 +1,29 @@
+---
+title: "SSH Key Authentication"
+date: "2026-06-18"
+summary: "A quick reference for generating SSH keys, adding them to agents, and configuring per-host settings."
+category: "Cybersecurity"
+tags: ["ssh", "authentication", "security"]
+---
+
+Password auth is slow and vulnerable. SSH keys are faster and more secure.
+
+Generate a key:
+```bash
+ssh-keygen -t ed25519 -C "you@example.com"
+```
+
+Add to agent:
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+Per-host config in `~/.ssh/config`:
+```
+Host github.com
+  IdentityFile ~/.ssh/id_ed25519
+  User git
+```
+
+Rotate keys annually. Use passphrases. Treat private keys like passwords.

@@ -1,0 +1,23 @@
+---
+title: "CSS Container Queries"
+date: "2026-06-22"
+summary: "Container queries let components respond to their container's size instead of the viewport. A game-changer for reusable UI."
+category: "Programming"
+tags: ["css", "frontend", "responsive"]
+---
+
+Container queries are what I wish media queries had always been. Instead of asking "how wide is the screen?", you ask "how wide is my container?".
+
+This means a card component can rearrange itself whether it's in a sidebar or a full-width layout — without the parent knowing or caring about the component's internal layout decisions.
+
+```css
+.card-container {
+  container-type: inline-size;
+}
+
+@container (min-width: 400px) {
+  .card { display: grid; grid-template-columns: 1fr 2fr; }
+}
+```
+
+Browser support is solid now. Use it.

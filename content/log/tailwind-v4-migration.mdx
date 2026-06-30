@@ -1,0 +1,14 @@
+---
+title: "Tailwind CSS v4 Migration"
+date: "2026-06-13"
+learned: "Tailwind v4 drops the config file entirely. Configuration moves to CSS using @theme directives and the @import entry point."
+problem: "After upgrading from v3 to v4 the build broke because custom colors fonts and breakpoints defined in the old config were no longer recognized."
+solution: "Moved all theme configuration into globals.css using @theme directives. Removed the old config file. Updated PostCSS config to use the new @tailwindcss/postcss package instead of tailwindcss."
+resources:
+  - "https://tailwindcss.com/docs/upgrade-guide"
+reflection: "The v4 approach is cleaner but the migration was rough because most docs still reference v3 syntax. Read the official upgrade guide first."
+---
+
+The biggest mental shift in v4: you think in CSS, not in JavaScript.
+
+The new approach is simpler — configuration lives next to the styles it affects, not in a separate JS file. And builds are faster because Tailwind doesn't need to parse a JS config file.

@@ -1,0 +1,26 @@
+---
+title: "Building a Digital Garden"
+date: "2026-06-15"
+summary: "How I set up a Next.js digital garden with MDX, category filters, and search — and why a garden is different from a blog."
+---
+
+A digital garden isn't a blog. Blogs are chronological, polished, and final. Gardens are topical, messy, and evolving. I wanted a space where I could plant half-formed ideas and tend to them over time.
+
+## Why Next.js and MDX
+
+I chose Next.js for the static generation and App Router, and MDX because I wanted to write in Markdown but still drop in custom React components when needed. The setup is simple:
+
+- MDX files live in `content/garden/`
+- Each file has frontmatter with a category, tags, and summary
+- Pages are statically generated at build time
+- Category filtering and search happen server-side via query parameters
+
+## The Structure
+
+Notes are organized by category — Programming, Technology, Cybersecurity, and so on. Each note gets a slug from its filename, a reading time estimate, and optional tags.
+
+The garden is intentionally small right now. I'd rather have five notes I've actually thought through than fifty I'll never revisit.
+
+## What I'd Do Differently
+
+I'd start with even less. The category system is useful but also constraining — some notes don't fit neatly into one bucket. Next iteration, I might use tags exclusively and let the structure emerge organically.

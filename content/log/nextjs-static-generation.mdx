@@ -1,0 +1,22 @@
+---
+title: "Next.js Static Generation"
+date: "2026-06-20"
+learned: "Next.js App Router uses `generateStaticParams` to pre-render dynamic routes at build time. Each slug gets its own HTML file — zero server runtime needed."
+problem: "Dynamic routes like `/posts/[slug]` need to know which pages exist before the site is built. Without explicit params, Next.js can't generate the HTML at build time."
+solution: "Export `generateStaticParams` from each dynamic page. It reads the content directory, extracts slugs, and tells Next.js exactly which paths to pre-render."
+resources:
+  - "https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes"
+reflection: "Static generation is the right default for a content site. No server, no database, no runtime cost. The trade-off is that adding content requires a rebuild — but that's fine for a personal site where you deploy via git push."
+---
+
+The `generateStaticParams` function is surprisingly simple:
+
+```tsx
+export function generateStaticParams() {
+  return getAllPosts().map((post) => ({ slug: post.slug }));
+}
+```
+
+Next.js calls this at build time, generates an HTML page for each slug, and serves them as static files. No server-side rendering needed.
+
+The key insight: this works because all the content lives in MDX files on disk. If I ever move to a CMS, I'd need to fetch content at build time instead — but the pattern stays the same.

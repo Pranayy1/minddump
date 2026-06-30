@@ -1,0 +1,24 @@
+---
+title: "Getting Started with TypeScript"
+date: "2026-06-10"
+summary: "The mental model shift from 'types as documentation' to 'types as a design tool' — and how TypeScript changed the way I write JavaScript."
+---
+
+When I first tried TypeScript, I treated it as JavaScript with extra homework. Add types to everything, appease the compiler, move on. It took months before I understood what I was missing.
+
+## Types as a Design Tool
+
+The real value of TypeScript isn't catching bugs (though it does that). It's that types let you think about your program's shape before you write a single line of implementation. When you define an interface, you're designing the boundary between two parts of your system.
+
+Here's the shift:
+
+- **Before**: Write code, then add types to describe what the code does.
+- **After**: Define types first, then write code that satisfies the contract.
+
+This is especially powerful when building React components. Defining the props interface before the component forces you to decide: what does this component need? What does it own? What should it delegate?
+
+## The Practical Bits
+
+Start with `strict: true` in your `tsconfig.json`. It's uncomfortable at first, but every error it catches is a real one. Don't use `any` — use `unknown` and narrow it. Learn union types and discriminated unions before reaching for generics.
+
+TypeScript isn't just safer JavaScript. It's a different way of thinking about programs.
