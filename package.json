@@ -10,22 +10,22 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "^15",
-    "react": "^19",
-    "react-dom": "^19",
-    "tailwindcss": "^4",
     "@tailwindcss/postcss": "^4",
     "framer-motion": "^12",
-    "next-mdx-remote": "^5",
     "gray-matter": "^4",
+    "lucide-react": "^0",
+    "next": "^15",
+    "next-mdx-remote": "^6.0.0",
+    "react": "^19",
+    "react-dom": "^19",
     "reading-time": "^1",
-    "lucide-react": "^0"
+    "tailwindcss": "^4"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "typescript": "^5",
-    "postcss": "^8"
+    "postcss": "^8",
+    "typescript": "^5"
   }
 }
