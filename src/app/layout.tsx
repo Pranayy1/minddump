@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { AttentionModal } from "@/components/easter-egg/AttentionModal";
 import { SITE } from "@/lib/site";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -100,6 +101,7 @@ export default function RootLayout({
         </div>
         <SiteFooter />
         <AttentionModal />
+        <SpeedInsights />
       </body>
     </html>
   );
